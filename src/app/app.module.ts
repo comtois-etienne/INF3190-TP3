@@ -11,10 +11,14 @@ import {RouterModule, Routes} from '@angular/router';
 import { PageContactComponent } from './page-contact/page-contact.component';
 import {AuthService} from "./services/auth.service";
 import {FormsModule} from "@angular/forms";
+import { PageDescriptionProgrammesComponent } from './page-description-programmes/page-description-programmes.component';
+import { PageInscriptionParentComponent } from './page-inscription-parent/page-inscription-parent.component';
 
 const appRoutes: Routes = [
   { path: '', component:  PageAccueilComponent},
-  { path: 'contact', component:  PageContactComponent}
+  { path: 'descriptionProgrammes', component: PageDescriptionProgrammesComponent},
+  { path: 'contact', component:  PageContactComponent},
+  { path: 'inscriptionParent', component:  PageInscriptionParentComponent}
 ];
 
 @NgModule({
@@ -24,7 +28,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     PageAccueilComponent,
-    PageContactComponent
+    PageContactComponent,
+    PageDescriptionProgrammesComponent,
+    PageInscriptionParentComponent
   ],
   imports: [
     BrowserModule,
