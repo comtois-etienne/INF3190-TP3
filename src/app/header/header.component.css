@@ -1,0 +1,54 @@
+#nav-title {
+  color: green;
+  font-weight: bolder;
+}
+
+#nav-title:hover {
+  color: grey;
+}
+
+.nav {
+  padding: 0%;
+}
+
+.navbar {
+  margin: 0%;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: grey;
+  font-weight: 400;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+  color: green;
+  font-weight: 400;
+}
+
+.nav-item a:hover {
+  text-decoration: none;
+  color: green;
+  font-weight: 400;
+}
+
+.login {
+  text-align: right;
+}
+
+.login > a {
+  color: green;
+}
+
+.login > a:hover {
+  color: grey;
+}
+
+.login-logo {
+  color: #292c2f;
+}
+
+.login-logo:hover {
+  color: green;
+}
