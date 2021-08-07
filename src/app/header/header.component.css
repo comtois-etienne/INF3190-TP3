@@ -25,6 +25,7 @@
   text-decoration: none;
   color: green;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .nav-item a:hover {

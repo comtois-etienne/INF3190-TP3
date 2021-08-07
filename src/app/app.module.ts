@@ -10,6 +10,7 @@ import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import {RouterModule, Routes} from '@angular/router';
 import { PageContactComponent } from './page-contact/page-contact.component';
 import {AuthService} from "./services/auth.service";
+import {FormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
   { path: '', component:  PageAccueilComponent},
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [
     AuthService
