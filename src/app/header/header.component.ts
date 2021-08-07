@@ -19,12 +19,14 @@ export class HeaderComponent implements OnInit {
   }
 
   onSignIn() {
+    console.log("sign in");
     let isAdmin = false;
     this.authService.signIn(isAdmin);
     this.authStatus = this.authService.isAuth;
   }
 
   onSignOut() {
+    console.log("sign out");
     this.authService.signOut();
     this.authStatus = this.authService.isAuth;
   }

@@ -32,7 +32,7 @@
         <form class="d-flex">
           <input required id="username" class="form-control me-2" type="text" placeholder="Nom d'utilisateur" name="username"/>
           <input required id="password" class="form-control me-2" type="password" placeholder="Mot de passe" name="password"/>
-          <button class="btn btn-dark">Connexion</button>
+          <button class="btn btn-dark" (click)="onSignIn()">Connexion</button>
           <a class="btn btn-secondary mx-2" routerLink="">Inscription</a>
         </form>
       </span>
@@ -46,7 +46,7 @@
       <a *ngIf="authStatus && !adminStatus" class="nav-link active" aria-current="page" routerLink="">
         Tableau de bord
       </a>
-      <a *ngIf="authStatus" class="nav-link active" aria-current="page" routerLink="">
+      <a *ngIf="authStatus" class="nav-link active" aria-current="page" (click)="onSignOut()">
         <strong>Déconnexion</strong>
       </a>
 
