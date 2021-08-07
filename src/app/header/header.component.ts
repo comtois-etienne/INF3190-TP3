@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
 
   authStatus!: boolean;
   adminStatus!: boolean;
+  username!: String;
 
   constructor(private authService: AuthService) { }
 
@@ -20,12 +21,13 @@ export class HeaderComponent implements OnInit {
 
   onSignIn() {
     console.log("sign in");
-    let isAdmin = false;
-    this.authService.signIn(isAdmin);
+    this.authService.signIn(this.username);
     this.authStatus = this.authService.isAuth;
+    this.adminStatus = this.authService.isAdmin;
   }
 
   onSignOut() {
+    this.username = "";
     console.log("sign out");
     this.authService.signOut();
     this.authStatus = this.authService.isAuth;
