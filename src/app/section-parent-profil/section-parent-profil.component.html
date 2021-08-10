@@ -2,7 +2,7 @@
   <div class="card-header">
     <div class="row mb-2 mt-2">
       <div class="col-6">
-        <h2 class="mb-0">getNom, getPrenom</h2>
+        <h2 class="mb-0">{{ parent.nom }}, {{ parent.prenom }}</h2>
       </div>
       <div class="col-6 d-flex align-items-end justify-content-end">
         <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modifierProfil">
@@ -15,21 +15,21 @@
   <div class="card-body">
     <div class="row">
       <div class="col">
-        <img src="../../assets/img/profil.png" height="160rem" alt="" />
+        <img src={{parent.urlPhoto}} height="160rem" alt="" />
       </div>
       <div class="col">
         <h6 class="mb-0 card-title">Nom</h6>
-        <p class="card-text">getNom</p>
+        <p class="card-text">{{ parent.nom }}</p>
         <h6 class="mb-0 card-title">Prenom</h6>
-        <p class="card-text">getPrenom</p>
+        <p class="card-text">{{ parent.prenom }}</p>
         <h6 class="mb-0 card-title">Courriel</h6>
-        <p class="card-text">getCourriel</p>
+        <p class="card-text">{{ parent.courriel }}</p>
       </div>
       <div class="col">
         <h6 class="mb-0 card-title">Adresse</h6>
-        <address class="card-text">getAdresse</address>
+        <address class="card-text">{{ parent.adresse }}</address>
         <h6 class="mb-0 card-title">Date De Naissance</h6>
-        <p class="card-text">getDateNaissance</p>
+        <p class="card-text">{{ parent.dateNaissance.toString() }}</p>
       </div>
     </div>
   </div>
@@ -57,12 +57,11 @@
   </div>
   <div class="card-body">
 
-
-      <div class="card mb-4">
+      <div *ngFor="let enfant of parent.enfants;" class="card mb-4">
         <div class="card-header">
           <div class="row mb-2 mt-2">
             <div class="col-6">
-              <h2 class="mb-0">getNom, getPrenom</h2>
+              <h2 class="mb-0">{{ enfant.nom }}, {{ enfant.prenom }}</h2>
             </div>
             <div class="col-6 d-flex align-items-end justify-content-end">
               <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modifierEnfant">
@@ -75,21 +74,21 @@
         <div class="card-body">
           <div class="row">
             <div class="col">
-              <img src="../../assets/img/profil.png" height="160rem" alt="" />
+              <img src={{enfant.urlPhoto}} height="160rem" alt="" />
             </div>
             <div class="col">
               <h6 class="mb-0 card-title">Nom</h6>
-              <p class="card-text">getNom</p>
+              <p class="card-text">{{enfant.nom}}</p>
               <h6 class="mb-0 card-title">Prenom</h6>
-              <p class="card-text">getPrenom</p>
+              <p class="card-text">{{enfant.prenom}}</p>
               <h6 class="mb-0 card-title">Notes</h6>
-              <p class="card-text">getNote</p>
+              <p class="card-text">{{enfant.note}}</p>
             </div>
             <div class="col">
               <h6 class="mb-0 card-title">Adresse</h6>
-              <address class="card-text">getAdresse</address>
+              <address class="card-text">{{parent.adresse}}</address>
               <h6 class="mb-0 card-title">Date De Naissance</h6>
-              <p class="card-text">getAdresse</p>
+              <p class="card-text">{{enfant.dateNaissance.toString()}}</p>
             </div>
           </div>
         </div>
