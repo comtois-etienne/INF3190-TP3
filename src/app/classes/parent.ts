@@ -31,4 +31,5 @@ export class Parent {
   public ajouterEnfant(enfant: Enfant) {
     this.enfants.push(enfant);
   }
+  
 }
