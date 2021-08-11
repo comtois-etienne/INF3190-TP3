@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Session } from '../classes/session';
 import { Enfant } from '../classes/enfant';
-import { InscriptionEnfant } from '../classes/inscription-enfant';
 import { Parent } from '../classes/parent';
-import { ProgrammeSemaine } from '../classes/programme-semaine';
+import { GabaritProgramme } from '../classes/gabarit-programme';
 
 @Component({
   selector: 'app-section-parent-inscription',
@@ -12,13 +11,21 @@ import { ProgrammeSemaine } from '../classes/programme-semaine';
 })
 export class SectionParentInscriptionComponent implements OnInit {
 
+  dateMaintenant: Date = new Date();
   parent: Parent;
+  gabaritProgrammes: Array<GabaritProgramme> = new Array<GabaritProgramme>();
   // programmeSemaine: Array<ProgrammeSemaine>;
   // inscriptionEnfant: Array<InscriptionEnfant>;
   sessionActuelle: Session;
   sessions: Array<Session> = new Array<Session>();
 
+  // array contenant des semaines
+    // contenant un array de programmes
+
   constructor() {
+
+    // Parent enfant
+
     this.parent = new Parent(
       "0",
       "Simpson", 
@@ -47,6 +54,8 @@ export class SectionParentInscriptionComponent implements OnInit {
       "")
     );
 
+    // Session
+
     this.sessionActuelle = new Session(
       "S21", 
       "Session 2021", 
@@ -64,9 +73,35 @@ export class SectionParentInscriptionComponent implements OnInit {
       new Date("2020-08-01")
     ));
 
+    // Gabarit Programme
+
+    this.gabaritProgrammes.push(new GabaritProgramme(
+      "G0", 
+      "Le classique", 
+      "Un peu de tout"
+    ));
+
+    this.gabaritProgrammes.push(new GabaritProgramme(
+      "G1", 
+      "L'enfant actif", 
+      "Que du sport"
+    ));
+
+    this.gabaritProgrammes.push(new GabaritProgramme(
+      "G0", 
+      "Arts et sciences", 
+      "Un remue-meninge"
+    ));
+
+
   }
 
   ngOnInit(): void {
+  }
+
+  estEnCours(date: Date): string {
+    if ( date > this.dateMaintenant ) return "week-ongoing";
+    else return "week-passed";
   }
 
 }

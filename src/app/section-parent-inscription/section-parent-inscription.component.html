@@ -35,21 +35,23 @@
       </thead>
 
       <tbody>
+        <ng-container>
+          <tr *ngFor="let enfant of parent.enfants" class="week-ongoing">
+            <td *ngIf="enfant == parent.enfants[0]" [attr.rowspan]="parent.enfants.length">getNoSemaine()</td>
+            <td>{{enfant.nom}}, {{enfant.prenom}}</td>
+            <td>afficherProgrammeSelection()</td>
+            <td>bouton</td>
+          </tr>
+        </ng-container>
 
-        <tr class="week-ongoing">
-          <td rowspan="nombreEnfants()">getNoSemaine()</td>
+
+
+        <!-- <tr class="week-passed">
+          <td [attr.rowspan]="parent.enfants.length">getNoSemaine()</td>
           <td>getNomEnfant(), getPrenomEnfant()</td>
           <td>afficherProgrammeSelection()</td>
           <td>bouton</td>
-        </tr>
-
-
-        <tr class="week-passed">
-          <td rowspan="nombreEnfants()">getNoSemaine()</td>
-          <td>getNomEnfant(), getPrenomEnfant()</td>
-          <td>afficherProgrammeSelection()</td>
-          <td>bouton</td>
-        </tr>
+        </tr> -->
 
       </tbody>
     </table>
