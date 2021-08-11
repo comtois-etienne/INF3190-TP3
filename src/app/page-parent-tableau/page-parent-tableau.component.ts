@@ -7,10 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageParentTableauComponent implements OnInit {
 
-  test: string = "reussi";
-
-  constructor() { }
-
   ngOnInit(): void {
   }
 
