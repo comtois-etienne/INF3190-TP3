@@ -35,14 +35,16 @@
       </thead>
 
       <tbody>
-        <ng-container>
+        <ng-container *ngFor="let semaine of sessionActuelle.semaines">
           <tr *ngFor="let enfant of parent.enfants" class="week-ongoing">
-            <td *ngIf="enfant == parent.enfants[0]" [attr.rowspan]="parent.enfants.length">getNoSemaine()</td>
+            <td *ngIf="enfant == parent.enfants[0]" [attr.rowspan]="parent.enfants.length">{{semaine.noSemaine}}</td>
             <td>{{enfant.nom}}, {{enfant.prenom}}</td>
             <td>afficherProgrammeSelection()</td>
             <td>bouton</td>
           </tr>
         </ng-container>
+
+        <!-- [class]="estEnCours(new Date)" -->
 
 
 
@@ -64,7 +66,7 @@
       <div class="row mb-2 mt-2">
         <div class="col-6">
           <h2 class="mb-0">
-            <i class="fas fa-shopping-cart"></i> Panier - getNomSessionActuelle() 
+            <i class="fas fa-shopping-cart"></i> Panier - {{sessionActuelle.nom}} 
           </h2>
         </div>
         <div class="col-6 d-flex align-items-end justify-content-end">

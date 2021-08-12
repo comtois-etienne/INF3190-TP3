@@ -3,6 +3,8 @@ import { Session } from '../classes/session';
 import { Enfant } from '../classes/enfant';
 import { Parent } from '../classes/parent';
 import { GabaritProgramme } from '../classes/gabarit-programme';
+import { Semaine } from '../classes/semaine';
+import { Programme } from '../classes/programme';
 
 @Component({
   selector: 'app-section-parent-inscription',
@@ -14,8 +16,6 @@ export class SectionParentInscriptionComponent implements OnInit {
   dateMaintenant: Date = new Date();
   parent: Parent;
   gabaritProgrammes: Array<GabaritProgramme> = new Array<GabaritProgramme>();
-  // programmeSemaine: Array<ProgrammeSemaine>;
-  // inscriptionEnfant: Array<InscriptionEnfant>;
   sessionActuelle: Session;
   sessions: Array<Session> = new Array<Session>();
 
@@ -54,25 +54,6 @@ export class SectionParentInscriptionComponent implements OnInit {
       "")
     );
 
-    // Session
-
-    this.sessionActuelle = new Session(
-      "S21", 
-      "Session 2021", 
-      "Session plein de plaisir", 
-      new Date("2021-04-01"), 
-      new Date("2021-08-01")
-    );
-
-    this.sessions.push(this.sessionActuelle);
-    this.sessions.push(new Session(
-      "S20", 
-      "Session 2020", 
-      "Session plein de plaisir", 
-      new Date("2020-04-01"), 
-      new Date("2020-08-01")
-    ));
-
     // Gabarit Programme
 
     this.gabaritProgrammes.push(new GabaritProgramme(
@@ -93,6 +74,43 @@ export class SectionParentInscriptionComponent implements OnInit {
       "Un remue-meninge"
     ));
 
+    // Session
+
+    this.sessionActuelle = new Session(
+      "S21", 
+      "Session 2021", 
+      "Session plein de plaisir", 
+      new Date("2021-04-01"), 
+      new Date("2021-08-01")
+    );
+
+    this.sessions.push(this.sessionActuelle);
+    this.sessions.push(new Session(
+      "S20", 
+      "Session 2020", 
+      "Session plein de plaisir", 
+      new Date("2020-04-01"), 
+      new Date("2020-08-01")
+    ));
+
+    for(let i = 1; i <= 15; i++) {
+      let semaineTmp: Semaine = new Semaine(
+        "S" + i,
+        this.sessionActuelle,
+        i
+      );
+      
+      for(let j = 1; j <= 3; j++) {
+        semaineTmp.ajouterProgramme( new Programme (
+          "P" + i + "-" + j,
+          this.gabaritProgrammes[j-1],
+          "Nos " + j + " amis.",
+          10 + (i * j) 
+        ));
+      }
+
+      this.sessionActuelle.ajouterSemaine(semaineTmp);
+    }
 
   }
 
